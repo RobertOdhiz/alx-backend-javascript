@@ -1,11 +1,3 @@
-export default function getStudentIdsSum(arr) {
-  let sum = 0;
-
-  if (arr instanceof Array) {
-    arr.forEach(item => {
-      sum += item.id
-    }); 
-  };
-
-  return sum;
-};
+export default function getStudentIdsSum(students) {
+  return students.reduce((agg, student) => agg + student.id, 0);
+}
