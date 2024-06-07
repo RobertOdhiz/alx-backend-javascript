@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-
 const countStudents = (dataPath) => {
   if (!fs.existsSync(dataPath)) {
     throw new Error('Cannot load the database');
@@ -31,7 +30,7 @@ const countStudents = (dataPath) => {
 
   const totalStudents = Object
     .values(studentGroups)
-    .reduce((pre, cur) => (pre || []).length + cur.length);
+    .reduce((pre, cur) => (pre || []).length + cur.length, 0);
   console.log(`Number of students: ${totalStudents}`);
   for (const [field, group] of Object.entries(studentGroups)) {
     const studentNames = group.map((student) => student.firstname).join(', ');
